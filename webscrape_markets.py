@@ -1,3 +1,6 @@
+# Jackson Lyons
+# Webscraper for farmers markets using Selenium and BeautifulSoup
+
 import time
 import csv
 from bs4 import BeautifulSoup
@@ -75,3 +78,8 @@ for market in markets:
 
 
 print(farmers_markets)
+fields = ['name', 'address', 'hours', 'products']
+with open('markets.csv', 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames = fields)
+    writer.writeheader()
+    writer.writerows(farmers_markets)
